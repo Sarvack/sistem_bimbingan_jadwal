@@ -8,8 +8,8 @@
       </div>
       <div class="nav-item nav-category">AKADEMIK</div>
       <div class="nav-item">
-        <a href="#" class="nav-link">
-          <i class="menu-icons mdi mdi-subtitles-outline"></i><span class="menu-title">Users</span>
+        <a href="{{ url('admin/prodi') }}" class="nav-link">
+          <i class="menu-icons mdi mdi-subtitles-outline"></i><span class="menu-title">Prodi</span>
         </a>
       </div>
     </nav>

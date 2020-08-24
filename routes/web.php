@@ -24,5 +24,6 @@ Route::group(
     ['namespace' => 'Admin', 'prefix' => 'admin'],
     function () {
         Route::get('dashboard', 'DashboardController@index');
+        Route::resource('prodi', 'ProdiController');
     }
 );

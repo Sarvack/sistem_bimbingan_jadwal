@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{ URL::asset('admin/assets/css/demo_6/style.css') }}">
     <!-- End Layout styles -->
     <link rel="shortcut icon" href="{{ URL::asset('admin/assets/images/favicon.png') }}" />
+
   </head>
   <body>
     <div class="container-scroller">
@@ -58,33 +59,10 @@
               <div class="content-area-inner">
                 <div class="card h-100 w-100">
                   <div class="card-body">
-                    <nav aria-label="breadcrumb">
-                      <ol class="breadcrumb">
-                          {{-- Dinamis --}}
-                        <li class="breadcrumb-item text-muted">
-                          <a class="text-muted" href="#"><i class="mdi mdi-home mr-2"></i>Home</a>
-                        </li>
-                      </ol>
-                    </nav>
                     @yield('content')
                   </div>
                 </div>
               </div>
-              <!-- partial:partials/_content-aside-right.html -->
-              <div class="content-aside-right">
-                <h4 class="card-title">Activity</h4>
-                <ul class="activity-lists">
-                  <li class="activity-list">
-                    <img class="profile-image rounded-circle img-sm" src="{{ URL::asset('admin/assets/images/faces/face1.jpg') }}" alt="profile image">
-                    <div class="activity-content">
-                      <p class="profile-image-name">Lucas Pacheco</p>
-                      <p class="activity-text">Nice work, good design!</p>
-                      <p class="activity-time">30 mins ago</p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <!-- partial -->
             </div>
           </div>
           <!-- content-wrapper ends -->
@@ -111,5 +89,6 @@
     <script src="{{ URL::asset('admin/assets/js/demo_6/dashboard.js') }}"></script>
     <script src="{{ URL::asset('admin/assets/js/demo_6/script.js') }}"></script>
     <!-- End custom js for this page-->
+    @yield('footer_js')
   </body>
 </html>
