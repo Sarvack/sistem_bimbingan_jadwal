@@ -72,6 +72,8 @@
       <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
+
+    @include('admin.partials.footer')
     <!-- plugins:js -->
     <script src="{{ URL::asset('admin/assets/vendors/js/vendor.bundle.base.js') }}"></script>
     <script src="{{ URL::asset('admin/assets/vendors/js/vendor.bundle.addons.js') }}"></script>

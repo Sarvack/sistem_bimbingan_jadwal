@@ -46,6 +46,7 @@ class ProdiController extends Controller
         return view('admin.prodi.edit',compact('prodi'));
     }
 
+    // validate on update need to fix
     public function update(Request $request, Prodi $prodi)
     {
         $request->validate([
@@ -61,5 +62,13 @@ class ProdiController extends Controller
 
         return redirect()->route('prodi.index')
                         ->with('success','Prodi updated successfully');
+    }
+
+    public function destroy(Prodi $prodi)
+    {
+        $prodi->delete();
+
+        return redirect()->route('prodi.index')
+                        ->with('success','Prodi deleted successfully');
     }
 }

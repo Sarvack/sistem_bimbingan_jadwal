@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Edit Product</h2>
+                <h2>Edit Prodi</h2>
             </div>
             <div class="pull-right">
                 <a class="btn btn-primary" href="{{ route('prodi.index') }}"> Back</a>
@@ -32,20 +32,13 @@
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Name:</strong>
-                    <input type="text" name="nama" value="{{ $prodi->id }}" class="form-control" placeholder="nama">
+                    <strong>Id  :</strong>
+                    <input type="text" name="id" value="{{ $prodi->id }}" class="form-control">
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Name:</strong>
-                    <input type="text" name="nama" value="{{ $prodi->nama }}" class="form-control" placeholder="nama">
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <strong>Jenjang:</strong>
+                <strong>Jenjang :</strong>
                 <div class="form-group">
                     <select class="form-control" name="jenjang">
                         <option value="{{ $prodi->jenjang }}">{{ $prodi->jenjang }}</option>
@@ -57,29 +50,29 @@
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Kode:</strong>
-                    <input type="text" name="kode" value="{{ $prodi->kode }}" class="form-control" placeholder="kode">
+                    <strong>Kode    :</strong>
+                    <input type="text" name="kode" value="{{ $prodi->kode }}" class="form-control">
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Nama:</strong>
-                    <input type="text" name="nama" value="{{ $prodi->nama }}" class="form-control" placeholder="nama">
+                    <strong>Name    :</strong>
+                    <input type="text" name="nama" value="{{ $prodi->nama }}" class="form-control">
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Keterangan:</strong>
-                    <textarea class="form-control" style="height:150px" name="keterangan" placeholder="keterangan">{{ $prodi->keterangan }}</textarea>
+                    <strong>Keterangan  :</strong>
+                    <input type="text" name="keterangan" value="{{ $prodi->keterangan }}" class="form-control">
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Password :</strong>
-                <input type="password" name="password" value="{{ $prodi->password }}" class="form-control" placeholder="password">
+                <input type="password" name="password" value="{{ $prodi->password }}" class="form-control">
                 </div>
             </div>
 
