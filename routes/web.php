@@ -25,5 +25,6 @@ Route::group(
     function () {
         Route::get('dashboard', 'DashboardController@index');
         Route::resource('prodikonsentrasi', 'ProdiKonsentrasiController');
-    }
+        Route::resource('prodi', 'ProdiController');
+
 );
