@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Edit Prodi</h2>
+                <h2>Edit Prodi Topik</h2>
             </div>
             <div class="pull-right">
                 <a class="btn btn-primary" href="{{ route('topik.index') }}"> Back</a>
@@ -42,8 +42,8 @@
                 <div class="form-group">
                     <select class="form-control" name="prodi_id">
                         <option value="{{ $topik->prodi->id }}">{{ $topik->prodi->nama }}</option>
-                            @foreach($topik as $top)
-                                <option value="{{ $top->prodi->id }}">{{ $top->prodi->nama }}</option>
+                            @foreach($prodies as $top)
+                                    <option value="{{ $top->id }}">{{ $top->nama }}</option>
                             @endforeach
                     </select>
                 </div>

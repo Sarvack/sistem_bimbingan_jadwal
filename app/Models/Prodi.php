@@ -14,6 +14,6 @@ class Prodi extends Model
 
     public function topiks()
     {
-        return $this->hasOne('App\Models\ProdiTopik', 'prodi_id');
+        return $this->hasOne('App\Models\ProdiTopik');
     }
 }

@@ -44,14 +44,15 @@ class ProdiTopikController extends Controller
 
     public function show(ProdiTopik $topik)
     {
-
         return view('admin.topik.show',compact('topik'));
     }
 
     // option di edit belum bener need to fix
     public function edit(ProdiTopik $topik)
-    {  
-        return view('admin.topik.edit',compact('topik'));
+    {
+        $prodies = Prodi::all();
+
+        return view('admin.topik.edit',compact('topik','prodies'));
     }
 
     // validate on update need to fix
