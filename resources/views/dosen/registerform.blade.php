@@ -48,7 +48,7 @@
                             <div class="name">Nama</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" name="nama">
+                                    <input class="input--style-5" type="text" name="nama" value="{{ old('nama') }}">
                                 </div>
                             </div>
                         </div>
@@ -56,7 +56,7 @@
                             <div class="name">NIP</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="number" name="nip">
+                                    <input class="input--style-5" type="number" name="nip" value="{{ old('nip') }}">
                                 </div>
                             </div>
                         </div> 
@@ -64,7 +64,7 @@
                             <div class="name">NIDN</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="number" name="nidn">
+                                    <input class="input--style-5" type="number" name="nidn" value="{{ old('nidn') }}">
                                 </div>
                             </div>
                         </div>
@@ -72,7 +72,7 @@
                             <div class="name">Email</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="email" name="email">
+                                    <input class="input--style-5" type="email" name="email" value="{{ old('email') }}">
                                 </div>
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                             <div class="name">Alamat</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" name="alamat">
+                                    <input class="input--style-5" type="text" name="alamat" value="{{ old('alamat') }}">
                                 </div>
                             </div>
                         </div>
@@ -96,7 +96,7 @@
                             <div class="name">Nomor Telepon</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="number" name="no_tlp">
+                                    <input class="input--style-5" type="number" name="no_telp" value="{{ old('no_tlp') }}">
                                 </div>
                             </div>
                         </div>
@@ -104,7 +104,7 @@
                             <div class="name">Foto</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="file" name="foto">
+                                    <input class="input--style-5" type="file" name="foto" value="{{ old('foto') }}">
                                 </div>
                             </div>
                         </div>
@@ -136,6 +136,14 @@
     <script src="{{ URL::asset('landing/assets/js/global.js') }}"></script>
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+<script type="text/javascript">
+    var msg = '{{Session::get('alert')}}';
+    var exist = '{{Session::has('alert')}}';
+    if(exist){
+      alert(msg);
+    }
+</script>
 
 </html>
 <!-- end document-->

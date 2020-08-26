@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Dosen;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\DosenModel; //ini punya
-use App\UserModel;
+use App\z_Dosen; //ini punya
+use App\z_Users;
 use Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
@@ -24,7 +24,7 @@ class RegisterController extends Controller
             'email' => 'required|min:4|email|unique:z_users',
             'password' => 'required',
             'alamat' => 'required',
-            'no_tlp' => 'required',
+            'no_telp' => 'required',
             'tipe' => 'required',
             'profil_id' => 'required',
             'id_user' => 'required',
@@ -41,18 +41,18 @@ class RegisterController extends Controller
         $file->move($tujuan_upload,$nama_file);
 
         //save ke tabel Dosen
-        $data =  new DosenModel();
+        $data =  new z_Dosen();
         $data->id = $request->profil_id;
         $data->nama = $request->nama;
         $data->nip = $request->nip;
         $data->nidn = $request->nidn;
         $data->alamat = $request->alamat;
-        $data->no_telp = $request->no_tlp;
+        $data->no_telp = $request->no_telp;
         $data->foto = $nama_file;
         $data->save();
 
         //save ke table user
-        $data =  new UserModel();
+        $data =  new z_Users();
         $data->id = $request->id_user;
         $data->nama = $request->nama;
         $data->email = $request->email;
