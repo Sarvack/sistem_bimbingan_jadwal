@@ -16,24 +16,17 @@
                   <div class="collapse" id="dashboard-dropdown">
                     <ul class="nav flex-column sub-menu">
                       <li class="nav-item">
-                        <a class="nav-link" href="blank-page.html">Prodi</a>
+                        <a class="nav-link" href="{{ url('admin/prodi') }}">Prodi</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="blank-page.html">Prodi Konsentrasi</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="blank-page.html">Prodi Topik</a>
+                        <a class="nav-link" href="{{ url('admin/topik') }}">Prodi Topik</a>
                       </li>
                     </ul>
                   </div>
                 </div>
-
-
     </nav>
-
-    {{-- <div class="sidebar-footer">
-      <p class="mb-0">© CRM Dashboard Ltd. 2019</p>
-      <small class="text-muted d-block mt-2">Copyright © 2019 Bootstrapdash. All rights reserved.</small>
-    </div> --}}
   </div>
   <!-- partial -->
