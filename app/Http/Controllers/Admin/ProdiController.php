@@ -11,12 +11,12 @@ class ProdiController extends Controller
     public function index()
     {
         $this->data['prodies'] = Prodi::orderBy('nama', 'ASC')->paginate(10);
-        return view('admin.prodi.index', $this->data);
+        return view('admins.prodi.index', $this->data);
     }
 
     public function create()
     {
-        return view('admin.prodi.form');
+        return view('admins.prodi.form');
     }
 
     public function store(Request $request)
@@ -38,12 +38,12 @@ class ProdiController extends Controller
 
     public function show(Prodi $prodi)
     {
-        return view('admin.prodi.show',compact('prodi'));
+        return view('admins.prodi.show',compact('prodi'));
     }
 
     public function edit(Prodi $prodi)
     {
-        return view('admin.prodi.edit',compact('prodi'));
+        return view('admins.prodi.edit',compact('prodi'));
     }
 
     // validate on update need to fix

@@ -15,7 +15,7 @@ class ProdiTopikController extends Controller
 
         $this->data['topiks'] = ProdiTopik::orderBy('nama', 'ASC')->paginate(10);
 
-        return view('admin.topik.index', $this->data);
+        return view('admins.topik.index', $this->data);
     }
 
     public function create()
@@ -24,7 +24,7 @@ class ProdiTopikController extends Controller
 
         $this->data['topiks'] = ProdiTopik::orderBy('nama', 'ASC')->paginate(10);
 
-        return view('admin.topik.form', $this->data);
+        return view('admins.topik.form', $this->data);
 
     }
 
@@ -44,7 +44,7 @@ class ProdiTopikController extends Controller
 
     public function show(ProdiTopik $topik)
     {
-        return view('admin.topik.show',compact('topik'));
+        return view('admins.topik.show',compact('topik'));
     }
 
     // option di edit belum bener need to fix
@@ -52,7 +52,7 @@ class ProdiTopikController extends Controller
     {
         $prodies = Prodi::all();
 
-        return view('admin.topik.edit',compact('topik','prodies'));
+        return view('admins.topik.edit',compact('topik','prodies'));
     }
 
     // validate on update need to fix

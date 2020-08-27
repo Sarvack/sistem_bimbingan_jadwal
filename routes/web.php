@@ -14,11 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 // route default laravel
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // route addition
+
+// Route::get('/', 'HomeController@index');
+Route::get('/front', 'FrontController@index');
+Route::get('/custom/login', 'FrontController@loginUser')->name('multilogin');
+
 
 Route::group(
     ['namespace' => 'Admin', 'prefix' => 'admin'],
@@ -26,5 +31,11 @@ Route::group(
         Route::get('dashboard', 'DashboardController@index');
         Route::resource('prodi', 'ProdiController');
         Route::resource('topik', 'ProdiTopikController');
+        Route::get('register', 'RegisterController@register')->name('adminRegister');
+        Route::post('daftaradmin', 'RegisterController@registrasiAdmin');
     }
 );
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
