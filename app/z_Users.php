@@ -15,4 +15,9 @@ class z_Users extends Model
     {
     	return $this->belongsTo('App\z_Dosen', 'profil_id');
     }
+
+    public function mahasiswauser()
+    {
+    	return $this->belongsTo('App\z_Mahasiswa', 'profil_id');
+    }
 }
