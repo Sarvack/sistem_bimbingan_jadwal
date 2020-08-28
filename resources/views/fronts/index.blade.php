@@ -26,7 +26,7 @@
                             <i class="flaticon-book"></i>
                         </div>
                         <div class="service_info">
-                            <h4><a href="">Dosen</a></h4>
+                            <h4><a href="{{ route('dosenRegister') }}">Dosen</a></h4>
                             <p>Register</p>
                         </div>
                     </div>

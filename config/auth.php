@@ -62,6 +62,12 @@ return [
             'provider' => 'mahasiswas',
         ],
 
+        'pengguna' => [
+            'driver' => 'session',
+            'provider' => 'penggunas',
+        ],
+
+
     ],
 
     /*
@@ -84,7 +90,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\user::class,
         ],
 
         'admins' => [
@@ -98,6 +104,10 @@ return [
         'mahasiswas' => [
             'driver' => 'eloquent',
             'model' => App\Mahasiswa::class,
+        ],
+        'penggunas' => [
+            'driver' => 'eloquent',
+            'model' => App\Users::class,
         ],
 
         // 'users' => [

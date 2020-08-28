@@ -13,16 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// route default laravel
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// route addition
-
-// Route::get('/', 'HomeController@index');
 Route::get('/front', 'FrontController@index');
 Route::get('/custom/login', 'FrontController@loginUser')->name('multilogin');
+Route::get('/login/pengguna', 'Auth\loginUserController@showLoginForm');
+Route::post('/login/pengguna', 'Auth\loginUserController@UserLogin');
+Route::get('/logout/pengguna', 'Auth\loginUserController@logout');
+
+Route::get('/admin', function() {
+  return view('admin');
+})->middleware('auth:pengguna');
+
+Route::get('/dosen', function() {
+  return view('dosens.dashboard');
+})->middleware('auth:pengguna');
 
 
 Route::group(
@@ -33,6 +36,14 @@ Route::group(
         Route::resource('topik', 'ProdiTopikController');
         Route::get('register', 'RegisterController@register')->name('adminRegister');
         Route::post('daftaradmin', 'RegisterController@registrasiAdmin');
+    }
+);
+
+Route::group(
+    ['namespace' => 'Dosen', 'prefix' => 'dosen'],
+    function () {
+        Route::get('register', 'RegisterController@register')->name('dosenRegister');
+        Route::post('daftardosen', 'RegisterController@registrasiDosen');
     }
 );
 

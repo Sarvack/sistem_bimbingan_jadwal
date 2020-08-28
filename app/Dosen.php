@@ -11,6 +11,8 @@ class Dosen extends Authenticatable
 {
     use Notifiable;
 
+        protected $primaryKey = 'id';
+
         protected $guard = 'dosen';
 
         protected $table = 'z_dosen';
