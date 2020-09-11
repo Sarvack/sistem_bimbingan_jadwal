@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class Mahasiswa
+class cekuser
 {
     /**
      * Handle an incoming request.
@@ -13,8 +13,12 @@ class Mahasiswa
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next,...$roles)
     {
-        return $next($request);
+        if(in_array($request->user()->tipe,$roles)) {
+             return $next($request);
+        }
+
+        return redirect('/');
     }
 }

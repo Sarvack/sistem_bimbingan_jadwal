@@ -47,24 +47,9 @@ return [
             'hash' => false,
         ],
 
-        'admin' => [
+        'cekTipe' => [
             'driver' => 'session',
-            'provider' => 'admins',
-        ],
-
-        'dosen' => [
-            'driver' => 'session',
-            'provider' => 'dosens',
-        ],
-
-        'mahasiswa' => [
-            'driver' => 'session',
-            'provider' => 'mahasiswas',
-        ],
-
-        'pengguna' => [
-            'driver' => 'session',
-            'provider' => 'penggunas',
+            'provider' => 'roles',
         ],
 
 
@@ -90,22 +75,10 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\user::class,
+            'model' => App\Users::class,
         ],
 
-        'admins' => [
-            'driver' => 'eloquent',
-            'model' => App\Admin::class,
-        ],
-        'dosens' => [
-            'driver' => 'eloquent',
-            'model' => App\Dosen::class,
-        ],
-        'mahasiswas' => [
-            'driver' => 'eloquent',
-            'model' => App\Mahasiswa::class,
-        ],
-        'penggunas' => [
+        'roles' => [
             'driver' => 'eloquent',
             'model' => App\Users::class,
         ],

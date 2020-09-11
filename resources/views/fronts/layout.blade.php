@@ -29,15 +29,15 @@
 
 <body>
 
-    @include('fronts.partials.header')
+    {{-- @include('fronts.partials.header') --}}
 
     @yield('slider')
 
     @yield('content')
 
-<br/>
+{{-- <br/>
 <br>
-<br>
+<br> --}}
 
 @include('fronts.partials.footer')
 

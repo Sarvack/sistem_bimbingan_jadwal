@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +7,7 @@
   <title>Document</title>
 </head>
 <body>
-  <h2>Dosen Page {{ Auth::guard('pengguna')->user()->nama }}</h2>
+  <h2>Dosen Page {{ Auth::guard('cekTipe')->user()->nama }}</h2>
   <br>
   <a href="/logout/pengguna">Logout</a>
 </body>

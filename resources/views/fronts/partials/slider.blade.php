@@ -8,8 +8,8 @@
                     <div class="col-xl-12">
                         <div class="slider_text ">
                             <h3>Bimbingan Online</h3>
-                            <a href="#" class="boxed-btn3">Get Start</a>
-                            <a href="#" class="boxed-btn4">Take a tour</a>
+                            {{-- <a href="#" class="boxed-btn3">Get Start</a>
+                            <a href="#" class="boxed-btn4">Take a tour</a> --}}
                         </div>
                     </div>
                 </div>
@@ -23,8 +23,8 @@
                     <div class="col-xl-12">
                         <div class="slider_text ">
                             <h3>Penjadwalan Online</h3>
-                            <a href="#" class="boxed-btn3">Get Start</a>
-                            <a href="#" class="boxed-btn4">Take a tour</a>
+                            {{-- <a href="#" class="boxed-btn3">Get Start</a>
+                            <a href="#" class="boxed-btn4">Take a tour</a> --}}
                         </div>
                     </div>
                 </div>

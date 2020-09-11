@@ -16,24 +16,12 @@ class RedirectIfAuthenticated
      * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
-    {
-        if (Auth::guard('pengguna')->check()) {
-            return redirect($this->redirectTo());
+    public function handle($request, Closure $next, $guard = null){
+
+        if (Auth::guard($guard)->check()) {
+            return redirect()->intended('/');
         }
-            
+
         return $next($request);
     }
-
-    public function redirectTo()
-    {
-        if (Auth::guard('pengguna')->user()->tipe == 'Admin Prodi') {
-            return '/admin';
-        } elseif (Auth::guard('pengguna')->user()->tipe == 'Dosen') {
-            return '/dosen';
-        } elseif (Auth::guard('pengguna')->user()->tipe == 'Mahasiswa'){
-            return '/mahasiswa';
-        }
-    }
-
 }

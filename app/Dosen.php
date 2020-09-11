@@ -13,8 +13,6 @@ class Dosen extends Authenticatable
 
         protected $primaryKey = 'id';
 
-        protected $guard = 'dosen';
-
         protected $table = 'z_dosen';
 
         protected $fillable = [
@@ -26,7 +24,7 @@ class Dosen extends Authenticatable
         ];
 
         public function dosen()
-    	{
-    	return $this->hasOne('App\Users');
-    	}
+    {
+    	return $this->belongsTo('App\Users', 'profil_id');
+    }
 }

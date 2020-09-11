@@ -9,8 +9,10 @@ use Illuminate\Notifications\Notifiable;
 class Users extends Authenticatable
 {
 	use Notifiable;
-	
+
 	protected $table = 'z_users';
+
+    protected $guarded = 'cekTipe';
 
     protected $primaryKey = 'id';
 
@@ -18,11 +20,11 @@ class Users extends Authenticatable
 
     public function adminuser()
     {
-    	return $this->belongsTo('App\Admin', 'profil_id');
+    	return $this->hasOne('App\Admin');
     }
 
     public function dosenuser()
     {
-    	return $this->belongsTo('App\Dosen', 'profil_id');
+    	return $this->hasOne('App\Dosen');
     }
 }

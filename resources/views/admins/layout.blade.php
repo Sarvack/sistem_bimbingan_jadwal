@@ -39,20 +39,20 @@
                   {{-- Dinamis --}}
                 <h4 class="page-title">Dashboard</h4>
                 <div class="page-header-content">
-                  <div class="server-load">
+                  {{-- <div class="server-load">
                     <p>Server Load</p>
                     <div class="chart-wrapper">
                       <canvas id="server-load-data-chart" height="20" width="80"></canvas>
                     </div>
                     <p class="font-weight-bold">50%</p>
-                  </div>
+                  </div> --}}
                   <div class="dropdown mt-3 mt-sm-0 d-none d-sm-block">
-                    <button class="btn dropdown-toggle" type="button" id="report-weeks" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Today : <span class="text-white">Jan 23</span></button>
+                    {{-- <button class="btn dropdown-toggle" type="button" id="report-weeks" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Today : <span class="text-white">Jan 23</span></button>
                     <div class="dropdown-menu" aria-labelledby="report-weeks">
                       <a class="dropdown-item" href="#">Yesterday</a>
                       <a class="dropdown-item" href="#">Last Week</a>
                       <a class="dropdown-item" href="#">Last Month</a>
-                    </div>
+                    </div> --}}
                   </div>
                 </div>
               </div>

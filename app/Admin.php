@@ -10,8 +10,6 @@ class Admin extends Authenticable
 {
     use Notifiable;
 
-    protected $guard = 'admin';
-
     protected $table = 'z_admin';
 
     protected $fillable = [
@@ -20,12 +18,10 @@ class Admin extends Authenticable
 
     protected $primaryKey = 'id';
 
-    // public $timestamps = false;
-
     protected $hidden = ['password'];
 
-    public function admin()
+    public function useradmin()
     {
-    	return $this->hasOne('App\Users');
+    	return $this->belongsTo('App\Users', 'profil_id');
     }
 }

@@ -4,18 +4,48 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Admin;
 use App\Users;
-use Illuminate\Support\Facades\DB;
+use App\Dosen;
 
-class RegisterController extends Controller
+class UserAdminController extends Controller
 {
-    public function register()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        return view('admins.register.index');
+        $this->data['users'] = Users::all();
+
+        $this->data['admins'] = Admin::orderBy('nama', 'ASC')->paginate(10);
+
+        return view('admins.register.index', $this->data);
     }
 
-    public function registrasiAdmin(Request $request)
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $this->data['users'] = Users::all();
+
+        $this->data['admins'] = Admin::orderBy('nama', 'ASC')->paginate(10);
+
+        return view('admins.register.form', $this->data);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
         $this->validate($request, [
             'nama' => 'required|min:4',
@@ -52,35 +82,40 @@ class RegisterController extends Controller
         return redirect('/admin/crud')->with('alert','Akun selesai. Silahkan Login');
     }
 
-    // public function index(Admin $admins)
-    // {
-    //     return view('admins.register.show',compact('admins'));
-    // }
-
-    public function index()
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Users $admin)
     {
-        $this->data['users'] = Users::all();
-
-        $this->data['admins'] = Admin::orderBy('nama', 'ASC')->paginate(10);
-
-        return view('admins.register.index', $this->data);
+        return view('admins.register.show',compact('admin'));
     }
 
-    public function show(Admin $admin)
-    {
-        return view('admins.register.form',compact('admin'));
-    }
-
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function edit($id)
     {
-    	$this->data['admin'] = Users::where('profil_id', '=', $id)->first();
+        $this->data['admin'] = Users::where('profil_id', '=', $id)->first();
 
-    	return view('admins.register.edit', $this->data);
+        return view('admins.register.edit', $this->data);
     }
 
-    public function update($id, Request $request)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
     {
-    	$this->validate($request, [
+        $this->validate($request, [
             'nama' => 'required|min:4',
             'email' => 'required|min:4|email|unique:z_users,email,'.$id.',profil_id',
             'password' => 'required',
@@ -111,9 +146,15 @@ class RegisterController extends Controller
     	return redirect('/admin/crud')->with('alert','Data Admin Di perbaharui.');
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function destroy($id)
     {
-    	$data = Users::where('profil_id', '=', $id)->first();
+        $data = Users::where('profil_id', '=', $id)->first();
     	$data->delete();
 
     	$data1 = Admin::where('id', '=', $id)->first();

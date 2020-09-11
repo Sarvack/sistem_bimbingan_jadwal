@@ -13,39 +13,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/front', 'FrontController@index');
-Route::get('/custom/login', 'FrontController@loginUser')->name('multilogin');
-Route::get('/login/pengguna', 'Auth\loginUserController@showLoginForm');
-Route::post('/login/pengguna', 'Auth\loginUserController@UserLogin');
-Route::get('/logout/pengguna', 'Auth\loginUserController@logout');
-
-Route::get('/admin', function() {
-  return view('admin');
-})->middleware('auth:pengguna');
-
-Route::get('/dosen', function() {
-  return view('dosens.dashboard');
-})->middleware('auth:pengguna');
-
-
 Route::group(
-    ['namespace' => 'Admin', 'prefix' => 'admin'],
+    ['namespace' => 'Dosen', 'middleware' => ['auth', 'cekTipe:Dosen'], 'prefix' => 'dosen'],
     function () {
-        Route::get('dashboard', 'DashboardController@index');
-        Route::resource('prodi', 'ProdiController');
-        Route::resource('topik', 'ProdiTopikController');
-        Route::get('register', 'RegisterController@register')->name('adminRegister');
-        Route::post('daftaradmin', 'RegisterController@registrasiAdmin');
+        Route::get('dosenajah', 'DosenController@index')->name('dosenaja');
     }
 );
 
+Route::get('/front', 'FrontController@index');
+Route::get('/custom/login', 'FrontController@loginUser')->name('multilogin');
+Route::get('/login/admin', 'Auth\loginUserController@adminLoginForm')->name('adminLogin');
+Route::post('/login/admin', 'Auth\loginUserController@adminLogin');
+Route::get('/login/dosen', 'Auth\loginUserController@dosenLoginForm')->name('dosenLogin');
+Route::post('/login/dosen', 'Auth\loginUserController@dosenLogin');
+Route::get('/login/mahasiswa', 'Auth\loginUserController@mahasiswaLoginForm');
+Route::post('/login/mahasiswa', 'Auth\loginUserController@mahasiswaLogin');
+Route::get('/logout/pengguna', 'Auth\loginUserController@logout')->name('logoutPengguna');
+
 Route::group(
-    ['namespace' => 'Dosen', 'prefix' => 'dosen'],
+    ['namespace' => 'Admin', 'middleware' => ['auth', 'cekTipe:Admin Prodi'], 'prefix' => 'admin'],
     function () {
+        Route::get('dashboard', 'DashboardController@index')->name('adminDashboard');
+        Route::resource('prodi', 'ProdiController');
+        Route::resource('topik', 'ProdiTopikController');
+        Route::resource('crud', 'UserAdminController');
+        Route::post('daftaradmin', 'RegisterController@registrasiAdmin');
         Route::get('register', 'RegisterController@register')->name('dosenRegister');
         Route::post('daftardosen', 'RegisterController@registrasiDosen');
     }
 );
+
+
 
 Auth::routes();
 
