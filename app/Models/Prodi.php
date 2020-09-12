@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Prodi extends Model
 {
-    // protected $primaryKey = 'id';
 
     protected $table = 'pps_prodi';
 
@@ -15,5 +14,10 @@ class Prodi extends Model
     public function topiks()
     {
         return $this->hasOne('App\Models\ProdiTopik');
+    }
+
+    public function konsentrasis()
+    {
+        return $this->hasOne('App\Models\ProdiKonsentrasi');
     }
 }

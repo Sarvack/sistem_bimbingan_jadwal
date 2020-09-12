@@ -1,5 +1,5 @@
 @extends('admins.layout')
-
+@section('sub-judul', 'Tambah Prodi Topik')
 @section('content')
 
 @if ($errors->any())
@@ -17,15 +17,10 @@
     @csrf
 
      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Id:</strong>
-                <input type="text" name="id" class="form-control" placeholder="id">
-            </div>
-        </div>
+        <input type="hidden" name="id" value ="{{ rand(1,10000) }}">
 
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <strong>Prodi:</strong>
+            <strong>Prodi</strong>
             <div class="form-group">
                     <select data-placeholder="Select Prodi" class="form-control" name="prodi_id">
                         <option value="">Pilih Prodi</option>
@@ -38,7 +33,7 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Nama Prodi:</strong>
+                <strong>Nama Prodi</strong>
                 <input type="text" name="nama" class="form-control" placeholder="nama">
             </div>
         </div>

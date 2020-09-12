@@ -1,6 +1,6 @@
 @extends('admins.layout')
-
+@section('sub-judul', 'Dashboard')
 @section('content')
-    <h3>Coming Soon Content</h3>
+    <h1>Will adding some feature soon</h1>
 @endsection
 

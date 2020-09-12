@@ -59,7 +59,7 @@ class ProdiTopikController extends Controller
     public function update(Request $request, ProdiTopik $topik)
     {
         $request->validate([
-            'id' => 'required',
+            // 'id' => 'required',
             'prodi_id' => 'required',
             'nama' => 'required',
         ]);

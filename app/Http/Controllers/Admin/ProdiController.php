@@ -22,15 +22,25 @@ class ProdiController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id' => 'required|unique:pps_prodi,id',
+            'id' => 'required',
             'jenjang' => 'required',
             'kode' => 'required|unique:pps_prodi,kode',
             'nama' => 'required|unique:pps_prodi,nama',
             'keterangan' => 'required',
-            'password' => 'required',
         ]);
 
-        Prodi::create($request->all());
+        if ($request->input('password')) {
+            $password = bcrypt($request->password);
+        }
+
+        Prodi::create([
+            'id' => $request->id,
+            'jenjang' => $request->jenjang,
+            'kode' => $request->kode,
+            'nama' => $request->nama,
+            'keterangan' => $request->keterangan,
+            'password' => $password
+        ]);
 
         return redirect()->route('prodi.index')
                         ->with('success','Prodi added successfully.');
@@ -50,7 +60,6 @@ class ProdiController extends Controller
     public function update(Request $request, Prodi $prodi)
     {
         $request->validate([
-            'id' => 'required',
             'jenjang' => 'required',
             'kode' => 'required',
             'nama' => 'required',

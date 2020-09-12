@@ -1,63 +1,59 @@
 @extends('admins.layout')
-
+@section('sub-judul', 'Prodi Tabel')
 @section('content')
-    <div class="content">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card card-default">
-                    <div class="card-header card-header-border-bottom">
-                        <h2>Prodi Tabel</h2>
-                    </div>
-                    <div class="card-body">
-                        <table class="table table-bordered table-stripped">
-                            <thead>
-                                <th>No</th>
-                                <th>Jenjang</th>
-                                <th>Kode</th>
-                                <th>Nama</th>
-                                <th>Keterangan</th>
-                                <th>Action</th>
-                            </thead>
-                            <tbody>
-                                @php
-                                    $i = 0;
-                                @endphp
-                                @foreach ($prodies as $prodi)
-                                @php
-                                    $i++;
-                                @endphp
-                                    <tr>
-                                        <td>{{ $i }}</td>
-                                        <td>{{ $prodi->jenjang }}</td>
-                                        <td>{{ $prodi->kode }}</td>
-                                        <td>{{ $prodi->nama }}</td>
-                                        <td>{{ $prodi->keterangan }}</td>
-                                        <td>
-                                            <form action="{{ route('prodi.destroy',$prodi->id) }}" method="POST">
 
-                                                <a class="btn btn-info" href="{{ route('prodi.show',$prodi->id) }}">Show</a>
+@if(Session::has('success'))
+	<div class="alert alert-success" role="alert">
+		{{ Session('success') }}
+	</div>
+@endif
 
-                                                <a class="btn btn-primary" href="{{ route('prodi.edit',$prodi->id) }}">Edit</a>
+	<a href="{{ url('admin/prodi/create') }}" class="btn btn-info btn-sm">Add New</a>
 
-                                                @csrf
-                                                @method('DELETE')
+	<br><br>
 
-                                                <button type="submit" class="btn btn-danger">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+	<table class="table table-striped table-hover table-sm table-bordered">
+		<thead>
+			<tr>
+				<th>No</th>
+                <th>Jenjang</th>
+                <th>Kode</th>
+                <th>Nama</th>
+                <th>Keterangan</th>
+                <th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+            @php
+                $i = 0;
+            @endphp
+                @foreach ($prodies as $prodi => $hasil)
+            @php
+                $i++;
+            @endphp
+			<tr>
+                <td> {{ $i }} </td>
+                <td>{{ $hasil->jenjang }}</td>
+                <td>{{ $hasil->kode }}</td>
+                <td>{{ $hasil->nama }}</td>
+                <td>{{ $hasil->keterangan }}</td>
+                <td>
+                    <form action="{{ route('prodi.destroy',$hasil->id) }}" method="POST">
 
-                    <div class="card-footer text-right">
-                        <a href="{{ url('admin/prodi/create') }}" class="btn btn-primary">Add New</a>
-                    </div>
+                        <a class="btn btn-info" href="{{ route('prodi.show',$hasil->id) }}">Show</a>
 
-                </div>
-            </div>
-        </div>
-    </div>
-    {{ $prodies->links() }}
+                        <a class="btn btn-primary" href="{{ route('prodi.edit',$hasil->id) }}">Edit</a>
+
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+			</tr>
+			@endforeach
+		</tbody>
+	</table>
+
+	{{ $prodies->links() }}
 @endsection

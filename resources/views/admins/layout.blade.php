@@ -1,96 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Bimo & Jado</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="{{ URL::asset('admins/assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('admins/assets/vendors/iconfonts/ionicons/css/ionicons.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('admins/assets/vendors/iconfonts/typicons/src/font/typicons.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('admins/assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('admins/assets/vendors/css/vendor.bundle.base.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('admins/assets/vendors/css/vendor.bundle.addons.css') }}">
-    <!-- endinject -->
-    <!-- plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <link rel="stylesheet" href="{{ URL::asset('admins/assets/css/shared/style.css') }}">
-    <!-- endinject -->
-    <!-- Layout styles -->
-    <link rel="stylesheet" href="{{ URL::asset('admins/assets/css/demo_6/style.css') }}">
-    <!-- End Layout styles -->
-    <link rel="shortcut icon" href="{{ URL::asset('admins/assets/images/favicon.png') }}" />
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Bimo &mdash; Jado Dashboard</title>
 
-  </head>
-  <body>
-    <div class="container-scroller">
-      <div class="container-fluid page-body-wrapper">
-        <!-- partial -->
-        <div class="main-panel">
-          <div class="hero-banner">
-            @include('admins.partials.navbar')
-          </div>
-          <div class="content-wrapper container-wrapper-width">
-            @include('admins.partials.sidebar')
-            <div class="content-area">
-              <div class="page-header">
-                  {{-- Dinamis --}}
-                <h4 class="page-title">Dashboard</h4>
-                <div class="page-header-content">
-                  {{-- <div class="server-load">
-                    <p>Server Load</p>
-                    <div class="chart-wrapper">
-                      <canvas id="server-load-data-chart" height="20" width="80"></canvas>
-                    </div>
-                    <p class="font-weight-bold">50%</p>
-                  </div> --}}
-                  <div class="dropdown mt-3 mt-sm-0 d-none d-sm-block">
-                    {{-- <button class="btn dropdown-toggle" type="button" id="report-weeks" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Today : <span class="text-white">Jan 23</span></button>
-                    <div class="dropdown-menu" aria-labelledby="report-weeks">
-                      <a class="dropdown-item" href="#">Yesterday</a>
-                      <a class="dropdown-item" href="#">Last Week</a>
-                      <a class="dropdown-item" href="#">Last Month</a>
-                    </div> --}}
-                  </div>
-                </div>
-              </div>
-              <div class="content-area-inner">
-                <div class="card h-100 w-100">
-                  <div class="card-body">
-                    @yield('content')
-                  </div>
-                </div>
-              </div>
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="{{ URL::asset('backend/assets/modules/bootstrap/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ URL::asset('backend/assets/modules/fontawesome/css/all.min.css') }}">
+
+  <!-- CSS Libraries -->
+
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="{{ URL::asset('backend/assets/css/style.css') }}">
+  <link rel="stylesheet" href="{{ URL::asset('backend/assets/css/components.css') }}">
+<!-- Start GA -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-94034622-3');
+</script>
+<!-- /END GA --></head>
+
+<body>
+  <div id="app">
+    <div class="main-wrapper main-wrapper-1">
+      <div class="navbar-bg"></div>
+      <nav class="navbar navbar-expand-lg main-navbar">
+        <form class="form-inline mr-auto">
+          <ul class="navbar-nav mr-3">
+            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
+            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
+          </ul>s
+        </form>
+        <ul class="navbar-nav navbar-right">
+          <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+            <img alt="image" src="{{ URL::asset('backend/assets/img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
+            <div class="d-sm-none d-lg-inline-block">Hi, {{ Auth::guard('cekTipe')->user()->nama }}</div></a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a href="features-profile.html" class="dropdown-item has-icon">
+                <i class="far fa-user"></i> Profile
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="/logout/pengguna" class="dropdown-item has-icon text-danger">
+                <i class="fas fa-sign-out-alt"></i> Logout
+              </a>
             </div>
-          </div>
-          <!-- content-wrapper ends -->
-        </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
-    </div>
-    <!-- container-scroller -->
+          </li>
+        </ul>
+      </nav>
 
-    @include('admins.partials.footer')
-    <!-- plugins:js -->
-    <script src="{{ URL::asset('admins/assets/vendors/js/vendor.bundle.base.js') }}"></script>
-    <script src="{{ URL::asset('admins/assets/vendors/js/vendor.bundle.addons.js') }}"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page-->
-    <!-- End plugin js for this page-->
-    <!-- inject:js -->
-    <script src="{{ URL::asset('admins/assets/js/shared/off-canvas.js') }}"></script>
-    <script src="{{ URL::asset('admins/assets/js/shared/hoverable-collapse.js') }}"></script>
-    <script src="{{ URL::asset('admins/assets/js/shared/misc.js') }}"></script>
-    <script src="{{ URL::asset('admins/assets/js/shared/settings.js') }}"></script>
-    <script src="{{ URL::asset('admins/assets/js/shared/todolist.js') }}"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page-->
-    <script src="{{ URL::asset('admins/assets/js/demo_6/dashboard.js') }}"></script>
-    <script src="{{ URL::asset('admins/assets/js/demo_6/script.js') }}"></script>
-    <!-- End custom js for this page-->
-    @yield('footer_js')
-  </body>
-</html>
+      @include('admins.partials.sidebar')
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <div class="section-header">
+            <h1>@yield('sub-judul')</h1>
+          </div>
+          @yield('content')
+          <div class="section-body">
+          </div>
+        </section>
+      </div>
+
+      @include('admins.partials.footer')

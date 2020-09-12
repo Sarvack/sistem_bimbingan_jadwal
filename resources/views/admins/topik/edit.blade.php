@@ -1,11 +1,8 @@
 @extends('admins.layout')
-
+@section('sub-judul', 'Edit Prodi Topik')
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Edit Prodi Topik</h2>
-            </div>
             <div class="pull-right">
                 <a class="btn btn-primary" href="{{ route('topik.index') }}"> Back</a>
             </div>

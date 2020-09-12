@@ -36,6 +36,7 @@ Route::group(
         Route::get('dashboard', 'DashboardController@index')->name('adminDashboard');
         Route::resource('prodi', 'ProdiController');
         Route::resource('topik', 'ProdiTopikController');
+        Route::resource('konsentrasi', 'ProdiKonsentrasiController');
         Route::resource('crud', 'UserAdminController');
         Route::post('daftaradmin', 'RegisterController@registrasiAdmin');
         Route::get('register', 'RegisterController@register')->name('dosenRegister');

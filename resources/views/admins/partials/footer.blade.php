@@ -1,21 +1,29 @@
- <!-- partial:partials/_navbar.html -->
- <div class="navbar">
-    <div class="container-wrapper-width">
-      <div class="row w-100">
-        <div class="col-2 col-md-4 navbar-col order-md-1">
-          <a href="index.html" class="brand-logo">
-            <p class="mb-0">© CRM Dashboard Ltd. 2019</p>
-          </a>
-          <a href="index.html" class="brand-logo-mini">
-            <small class="text-muted d-block mt-2">Copyright © 2019 Bootstrapdash. All rights reserved.</small>
-          </a>
-        </div>
-        <div class="d-none d-md-block col-md-4 navbar-col order-md-0">
-          <ul class="nav">
-              {{-- another nav goes here --}}
-          </ul>
-        </div>
-      </div>
+<footer class="main-footer">
+    <div class="footer-left">
+      Copyright &copy; 2020 <div class="bullet"></div> Design By <a href="#">Author</a>
     </div>
-  </div>
-  <!-- partial -->
+    <div class="footer-right">
+
+    </div>
+  </footer>
+</div>
+</div>
+
+<!-- General JS Scripts -->
+<script src="{{ URL::asset('backend/assets/modules/jquery.min.js') }}"></script>
+<script src="{{ URL::asset('backend/assets/modules/popper.js') }}"></script>
+<script src="{{ URL::asset('backend/assets/modules/tooltip.js') }}"></script>
+<script src="{{ URL::asset('backend/assets/modules/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ URL::asset('backend/assets/modules/nicescroll/jquery.nicescroll.min.js') }}"></script>
+<script src="{{ URL::asset('backend/assets/modules/moment.min.js') }}"></script>
+<script src="{{ URL::asset('backend/assets/js/stisla.js') }}"></script>
+
+<!-- JS Libraies -->
+
+<!-- Page Specific JS File -->
+
+<!-- Template JS File -->
+<script src="{{ URL::asset('backend/assets/js/scripts.js') }}"></script>
+<script src="{{ URL::asset('backend/assets/js/custom.js') }}"></script>
+</body>
+</html>

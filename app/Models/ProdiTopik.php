@@ -6,13 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProdiTopik extends Model
 {
-    // public $timestamps = false;
-
     protected $table = 'pps_prodi_topik';
 
     protected $fillable = ['id', 'prodi_id', 'nama'];
-
-    public $timestamps = false;
 
     public function prodi()
     {

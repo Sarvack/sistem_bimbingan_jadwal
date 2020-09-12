@@ -1,11 +1,8 @@
 @extends('admins.layout')
-
+@section('sub-judul', 'Edit Prodi')
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Edit Prodi</h2>
-            </div>
             <div class="pull-right">
                 <a class="btn btn-primary" href="{{ route('prodi.index') }}"> Back</a>
             </div>
@@ -31,17 +28,10 @@
          <div class="row">
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Id  :</strong>
-                    <input type="text" name="id" value="{{ $prodi->id }}" class="form-control">
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
                 <strong>Jenjang :</strong>
                 <div class="form-group">
-                    <select class="form-control" name="jenjang">
-                        <option value="{{ $prodi->jenjang }}">{{ $prodi->jenjang }}</option>
+                    <select class="form-control" name="jenjang" >
+                        <option value="{{ $prodi->jenjang }}" selected>{{ $prodi->jenjang }}</option>
                         <option value="S2">S2</option>
                         <option value="S3">S3</option>
                     </select>
