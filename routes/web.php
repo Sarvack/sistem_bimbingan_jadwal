@@ -13,13 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(
-    ['namespace' => 'Dosen', 'middleware' => ['auth', 'cekTipe:Dosen'], 'prefix' => 'dosen'],
-    function () {
-        Route::get('dosenajah', 'DosenController@index')->name('dosenaja');
-    }
-);
-
 Route::get('/front', 'FrontController@index');
 Route::get('/custom/login', 'FrontController@loginUser')->name('multilogin');
 Route::get('/login/admin', 'Auth\loginUserController@adminLoginForm')->name('adminLogin');
@@ -38,13 +31,19 @@ Route::group(
         Route::resource('topik', 'ProdiTopikController');
         Route::resource('konsentrasi', 'ProdiKonsentrasiController');
         Route::resource('crud', 'UserAdminController');
+        Route::resource('nilai', 'NilaiController');
         Route::post('daftaradmin', 'RegisterController@registrasiAdmin');
         Route::get('register', 'RegisterController@register')->name('dosenRegister');
         Route::post('daftardosen', 'RegisterController@registrasiDosen');
     }
 );
 
-
+Route::group(
+    ['namespace' => 'Dosen', 'middleware' => ['auth', 'cekTipe:Dosen'], 'prefix' => 'dosen'],
+    function () {
+        Route::get('dashboard', 'DosenController@index')->name('dosenaja');
+    }
+);
 
 Auth::routes();
 

@@ -1,5 +1,5 @@
 @extends('admins.layout')
-@section('sub-judul', 'Tabel Admin')
+@section('sub-judul', 'Tabel Nilai')
 @section('content')
 
 @if(Session::has('success'))
@@ -8,7 +8,7 @@
 	</div>
 @endif
 
-	<a href="{{ url('admin/crud/create') }}" class="btn btn-info btn-sm">Add New</a>
+	<a href="{{ url('admin/nilai/create') }}" class="btn btn-info btn-sm">Add New</a>
 
 	<br><br>
 
@@ -16,8 +16,8 @@
 		<thead>
 			<tr>
 				<th>No</th>
-                <th>Nama</th>
-                <th>Jabatan</th>
+                <th>Nilai Huruf</th>
+                <th>Predikat</th>
                 <th>Action</th>
 			</tr>
 		</thead>
@@ -25,20 +25,20 @@
             @php
                 $i = 0;
             @endphp
-                @foreach ($admins as $admin => $hasil)
+                @foreach ($nilais as $nilai => $hasil)
             @php
                 $i++;
             @endphp
 			<tr>
                 <td> {{ $i }} </td>
-                <td>{{ $hasil->nama }}</td>
-                <td>{{ $hasil->jabatan }}</td>
+                <td>{{ $hasil->nilai_huruf }}</td>
+                <td>{{ $hasil->predikat }}</td>
                 <td>
-                    <form action="{{ route('crud.destroy',$hasil->id) }}" method="POST">
+                    <form action="{{ route('nilai.destroy',$hasil->id) }}" method="POST">
 
-                        <a class="btn btn-info" href="{{ route('crud.show',$hasil->id) }}">Show</a>
+                        <a class="btn btn-info" href="{{ route('nilai.show',$hasil->id) }}">Show</a>
 
-                        <a class="btn btn-primary" href="{{ route('crud.edit',$hasil->id) }}">Edit</a>
+                        <a class="btn btn-primary" href="{{ route('nilai.edit',$hasil->id) }}">Edit</a>
 
                         @csrf
                         @method('DELETE')
@@ -51,5 +51,5 @@
 		</tbody>
 	</table>
 
-	{{ $admins->links() }}
+	{{ $nilais->links() }}
 @endsection

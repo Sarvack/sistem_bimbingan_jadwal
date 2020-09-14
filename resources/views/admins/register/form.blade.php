@@ -1,6 +1,15 @@
 @extends('admins.layout')
-
+@section('sub-judul', 'Tambah Admin')
 @section('content')
+
+<div class="row">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-right">
+            <a class="btn btn-primary" href="{{ route('crud.index') }}">Back</a>
+        </div>
+    </div>
+</div>
+<br>
 
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -13,7 +22,6 @@
     </div>
 @endif
 
-@section('content')
 <form action="/admin/daftaradmin" method="POST" enctype="multipart/form-data">
     @csrf
 

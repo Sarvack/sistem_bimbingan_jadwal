@@ -88,9 +88,9 @@ class UserAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Users $admin)
+    public function show(Admin $crud)
     {
-        return view('admins.register.show',compact('admin'));
+        return view('admins.register.show',compact('crud'));
     }
 
     /**

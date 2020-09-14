@@ -18,12 +18,12 @@ class Users extends Authenticatable
 
     protected $fillable = ['id, nama, email, password, tipe, profil_id'];
 
-    public function adminuser()
+    public function admin()
     {
     	return $this->hasOne('App\Admin');
     }
 
-    public function dosenuser()
+    public function dosen()
     {
     	return $this->hasOne('App\Dosen');
     }

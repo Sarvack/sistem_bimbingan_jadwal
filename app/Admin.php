@@ -20,7 +20,7 @@ class Admin extends Authenticable
 
     protected $hidden = ['password'];
 
-    public function useradmin()
+    public function users()
     {
     	return $this->belongsTo('App\Users', 'profil_id');
     }

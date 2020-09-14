@@ -14,11 +14,11 @@ class loginUserController extends Controller
     protected function redirectTo()
     {
         if (Auth::guard('cekTipe')->user()->tipe == 'Admin Prodi') {
-            return ('adminDashboard');
+            return ('/admin/dashboard');
         } elseif (Auth::guard('cekTipe')->user()->tipe == 'Dosen') {
-            return ('dosenaja');
+            return ('/dosen/dashboard');
         } elseif (Auth::guard('cekTipe')->user()->tipe == 'Mahasiswa') {
-            return ('mahasiswaDashboard');
+            return ('/mahasiswa/dashboard');
         }
         return '/home';
     }
@@ -48,7 +48,7 @@ class loginUserController extends Controller
         ]);
 
         if (Auth::guard('cekTipe')->attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect()->intended('/admin/dashboard');
+            return redirect()->intended($this->redirectPath());
           }
 
           return back()->withInput($request->only('email', 'remember'));
@@ -64,7 +64,7 @@ class loginUserController extends Controller
         ]);
 
         if (Auth::guard('cekTipe')->attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect()->intended('/dosen/dosenajah');
+            return redirect()->intended($this->redirectPath());
           }
 
           return back()->withInput($request->only('email', 'remember'));

@@ -1,10 +1,10 @@
 @extends('admins.layout')
-@section('sub-judul', 'Edit Admin')
+@section('sub-judul', 'Edit Nilai')
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('crud.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('nilai.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -21,7 +21,7 @@
         </div>
     @endif
 
-    <form action="{{ route('crud.update',$admin->profil_id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('nilai.update',$nilai->id) }}" method="POST">
         @csrf
         @method('PUT')
 
@@ -29,29 +29,15 @@
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Nama</strong>
-                    <input type="text" name="nama" value="{{ $admin->nama }}" class="form-control">
+                    <strong>Nilai Huruf    :</strong>
+                    <input type="text" name="nilai_huruf" value="{{ $nilai->nilai_huruf }}" class="form-control">
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Email</strong>
-                    <input type="email" name="email" value="{{ $admin->email }}" class="form-control">
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Password</strong>
-                    <input type="password" name="password" class="form-control">
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Foto</strong>
-                    <input type="file" name="foto" class="form-control">
+                    <strong>Predikat    :</strong>
+                    <input type="text" name="predikat" value="{{ $nilai->predikat }}" class="form-control">
                 </div>
             </div>
 
