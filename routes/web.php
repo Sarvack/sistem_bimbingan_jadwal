@@ -51,6 +51,7 @@ Route::group(
         Route::get('dashboard', 'DashboardController@index');
         Route::get('register', 'RegisterController@index');
         Route::post('registerpost', 'RegisterController@postregis');
+        Route::get('semua', 'HalamanController@index');
     }
 );
 

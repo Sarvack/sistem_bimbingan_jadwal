@@ -13,6 +13,6 @@ class z_Dosen extends Model
 
     public function dosen()
     {
-    	return $this->hasOne('App\z_User');
+    	return $this->hasOne('App\z_Users');
     }
 }

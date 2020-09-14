@@ -12,8 +12,9 @@ class HalamanController extends Controller
 {
     function datadosen()
     {
+        $tipe = 'Dosen';
     	// $this->data['dosen'] = z_Dosen::all();
-    	$this->data['users'] = z_Users::all();
+    	$this->data['users'] = z_Users::where('tipe', '=', $tipe)->get();
 
     	// $dosendata = z_Dosen::all();
     	return view('dosen.daftardosen', $this->data);

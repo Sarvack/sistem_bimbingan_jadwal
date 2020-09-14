@@ -13,19 +13,19 @@ class z_Mahasiswa extends Model
 
     public function mahasiswa()
     {
-    	return $this->hasOne('App\z_User');
+    	return $this->hasOne('App\z_Users');
     }
 
     public function prodimaha()
     {
-    	return $this->belongsTo('App\Prodi', 'profil_id');
+    	return $this->belongsTo('App\Prodi', 'prodi_id');
     }
     public function konsentrasimaha()
     {
-    	return $this->belongsTo('App\ProdiKonsentrasi', 'profil_id');
+    	return $this->belongsTo('App\ProdiKonsentrasi', 'konsentrasi_id');
     }
     public function angkatanmaha()
     {
-    	return $this->belongsTo('App\pps_Angkatan', 'profil_id');
+    	return $this->belongsTo('App\pps_Angkatan', 'angkatan_id');
     }
 }

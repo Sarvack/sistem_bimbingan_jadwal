@@ -256,6 +256,7 @@
               </li>
               <li class="#"><a class="nav-link" href="/dosen/register"><i class="far fa-square"></i> <span>Register</span></a></li>
               <li class="#"><a class="nav-link" href="/dosen/semua"><i class="far fa-square"></i> <span>Data Dosen</span></a></li>
+              <li class="#"><a class="nav-link" href="/mahasiswa/semua"><i class="far fa-square"></i> <span>Data Mahasiswa</span></a></li>
 
             </ul>
         </aside>

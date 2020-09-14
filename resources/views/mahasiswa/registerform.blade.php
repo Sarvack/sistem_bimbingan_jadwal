@@ -31,7 +31,7 @@
         <div class="wrapper wrapper--w680">
             <div class="card card-5">
                 <div class="card-heading">
-                    <h2 class="title">Registrasi Dosen</h2>
+                    <h2 class="title">Registrasi Mahasiswa</h2>
                 </div>
                 <div class="card-body">
                     @if ($errors->any())
@@ -65,7 +65,7 @@
                             <div class="value">
                                 <div class="input-group">
                                     <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="subject" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+                                        <select tabindex="-1" class="select2-hidden-accessible" aria-hidden="true" name="prodi_id">
                                             <option disabled="disabled" selected="selected">Choose option</option>
                                             @foreach ($prodi as $p)
                                                 <option value="{{ $p->id }}">{{ $p->nama }}</option>
@@ -81,7 +81,7 @@
                             <div class="value">
                                 <div class="input-group">
                                     <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="subject" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+                                        <select tabindex="-1" class="select2-hidden-accessible" aria-hidden="true" name="konsentrasi_id">
                                             <option disabled="disabled" selected="selected">Choose option</option>
                                             @foreach ($prodik as $pk)
                                                 <option value="{{ $pk->id }}">{{ $pk->nama }}</option>
@@ -97,7 +97,7 @@
                             <div class="value">
                                 <div class="input-group">
                                     <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="subject" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+                                        <select tabindex="-1" class="select2-hidden-accessible" aria-hidden="true" name="angkatan_id">
                                             <option disabled="disabled" selected="selected">Choose option</option>
                                             @foreach ($angkatan as $a)
                                                 <option value="{{ $a->id }}">{{ $a->nama }}</option>
@@ -121,14 +121,6 @@
                             <div class="value">
                                 <div class="input-group">
                                     <input class="input--style-5" type="password" name="password">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row" data-validate="NIM is required">
-                            <div class="name">NIM</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="text" name="nim" value="{{ old('nim') }}">
                                 </div>
                             </div>
                         </div>
@@ -161,10 +153,10 @@
                             <div class="value">
                                 <div class="input-group">
                                     <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="subject" tabindex="-1" class="select2-hidden-accessible" aria-hidden="true">
+                                        <select tabindex="-1" class="select2-hidden-accessible" aria-hidden="true" name="jenis_kelamin">
                                             <option disabled="disabled" selected="selected">Choose option</option>
-                                            <option>Laki-Laki</option>
-                                            <option>Perempuan</option>
+                                            <option value="Laki-Laki">Laki-Laki</option>
+                                            <option value="Perempuan">Perempuan</option>
                                         </select>
                                         <div class="select-dropdown"></div>
                                     </div>
@@ -231,14 +223,14 @@
                             <div class="name">File Ijazah Terakhir</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="file" name="foto" value="{{ old('foto') }}">
+                                    <input class="input--style-5" type="file" name="file_ijazah" value="{{ old('file_ijazah') }}">
                                 </div>
                             </div>
                         </div>
                         {{-- hidden input --}}
                         <input type = "hidden" name = "tipe" value ="Mahasiswa">
-                        <input type = "hidden" name = "profil_id" value ="{{ rand(1,10000) }}">
-                        <input type = "hidden" name = "id_user" value ="{{ rand(10,10000) }}">
+                        <input type = "hidden" name = "id" value ="{{ rand(10,10000) }}">
+                        <input type = "hidden" name = "profil_id" value ="{{ rand(10,10000) }}">
                         {{-- end hidden --}}
                         <div class="form-row">
                             <label class="label label--block">Klik <a href="#">Disini</a> jika sudah punya akun</label>
