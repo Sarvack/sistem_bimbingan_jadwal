@@ -7,7 +7,7 @@
   <div class="main-content">
     <section class="section">
       <div class="section-header">
-        <h1>Daftar Mahsiswa</h1>
+        <h1>Daftar Mahasiswa</h1>
       </div>
 
       <div class="section-body">
@@ -48,8 +48,8 @@
                             <td>{{$m->alamat}}</td>
                             <td>{{$m->jenis_kelamin}}</td>
                             <td>
-                              <a href="/mahasiswa/edit/{{$m->id}}" class="btn btn-success">Edit</a>
-                              <a href="/mahasiswa/hapus/{{$m->id}}" class="btn btn-danger hapus-confirm">Hapus</a>
+                              <a href="/dosen/editmahasiswa/{{$m->id}}" class="btn btn-success">Edit</a>
+                              <a href="/dosen/hapusmahasiswa/{{$m->id}}" class="btn btn-danger hapus-confirm">Hapus</a>
                             </td>
                           </tr>
                         @endforeach

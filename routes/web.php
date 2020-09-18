@@ -42,6 +42,9 @@ Route::group(
         Route::get('edit/{id}', 'HalamanController@editdosen');
         Route::post('postedit/{id}', 'HalamanController@posteditdosen');
         Route::get('hapus/{id}', 'HalamanController@hapusdosen');
+        Route::get('editmahasiswa/{id}', 'HalamanController@editmahasiswa');
+        Route::post('posteditmahasiswa/{id}', 'HalamanController@posteditmahasiswa');
+        Route::get('hapusmahasiswa/{id}', 'HalamanController@hapusmahasiswa');
     }
 );
 
@@ -52,6 +55,7 @@ Route::group(
         Route::get('register', 'RegisterController@index');
         Route::post('registerpost', 'RegisterController@postregis');
         Route::get('semua', 'HalamanController@index');
+
     }
 );
 

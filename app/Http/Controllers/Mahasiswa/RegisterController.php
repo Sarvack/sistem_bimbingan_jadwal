@@ -47,7 +47,7 @@ class RegisterController extends Controller
             'profil_id' => 'required',
             //file
             'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
-            'file_ijazah' => 'required|mimes:pdf,jpeg,png,jpg|max:2048'
+            'file_ijazah' => 'required|file|mimes:pdf,jpeg,png,jpg|max:2048'
         ]);
 
         //foto
@@ -58,7 +58,7 @@ class RegisterController extends Controller
 
         //ijazah
         $file2 = $request->file('file_ijazah');
-        $nama_file2 = "ijazah".date('Y-m-d')."_".$file->getClientOriginalName();
+        $nama_file2 = "ijazah".date('Y-m-d')."_".$file2->getClientOriginalName();
         $tujuan_upload2 = 'mahasiswa_file/ijazah';
         $file2->move($tujuan_upload2,$nama_file2);
 
@@ -96,4 +96,5 @@ class RegisterController extends Controller
 
         return redirect('mahasiswa/register')->with('alert','Akun selesai. Silahkan Login');
     }
+
 }
