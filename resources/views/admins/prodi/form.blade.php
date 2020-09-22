@@ -30,10 +30,10 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <strong>Jenjang:</strong>
             <div class="form-group">
-                <select class="form-control" name="jenjang">
-                    <option value="">pilih jenjang</option>
-                    <option value="S2">S2</option>
-                    <option value="S3">S3</option>
+                <select class="form-control" name="prodi_id">
+                    <option disabled="disabled" selected="selected">Pilih Jenjang</option>
+                        <option value="S2">S2</option>
+                        <option value="S3">S3</option>
                 </select>
             </div>
         </div>

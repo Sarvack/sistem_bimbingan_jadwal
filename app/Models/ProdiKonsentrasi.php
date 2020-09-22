@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProdiKonsentrasi extends Model
 {
+    protected $primaryKey = 'id';
+
     protected $table = 'pps_prodi_konsentrasi';
 
     protected $fillable = ['id', 'prodi_id', 'nama', 'kode', 'keterangan'];

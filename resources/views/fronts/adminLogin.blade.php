@@ -21,7 +21,7 @@
     @endif
 
     <div class="col-lg-8">
-        <form class="form-contact contact_form" action="/login/admin" method="post">
+        <form class="form-contact contact_form" action="/login/admin" method="POST">
             <div class="row">
                 @csrf
                 <div class="col-sm-6">

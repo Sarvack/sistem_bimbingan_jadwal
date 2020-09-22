@@ -19,7 +19,7 @@ Route::get('/login/admin', 'Auth\loginUserController@adminLoginForm')->name('adm
 Route::post('/login/admin', 'Auth\loginUserController@adminLogin');
 Route::get('/login/dosen', 'Auth\loginUserController@dosenLoginForm')->name('dosenLogin');
 Route::post('/login/dosen', 'Auth\loginUserController@dosenLogin');
-Route::get('/login/mahasiswa', 'Auth\loginUserController@mahasiswaLoginForm');
+Route::get('/login/mahasiswa', 'Auth\loginUserController@mahasiswaLoginForm')->name('mahasiswaLogin');
 Route::post('/login/mahasiswa', 'Auth\loginUserController@mahasiswaLogin');
 Route::get('/logout/pengguna', 'Auth\loginUserController@logout')->name('logoutPengguna');
 
@@ -41,7 +41,14 @@ Route::group(
 Route::group(
     ['namespace' => 'Dosen', 'middleware' => ['auth', 'cekTipe:Dosen'], 'prefix' => 'dosen'],
     function () {
-        Route::get('dashboard', 'DosenController@index')->name('dosenaja');
+        Route::get('dashboard', 'DosenController@index')->name('dosenDashboard');
+    }
+);
+
+Route::group(
+    ['namespace' => 'Mahasiswa', 'middleware' => ['auth', 'cekTipe:Mahasiswa'], 'prefix' => 'mahasiswa'],
+    function () {
+        Route::get('dashboard', 'MahasiswaController@index')->name('mahasiswaDashboard');
     }
 );
 

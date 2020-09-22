@@ -5,6 +5,7 @@ namespace App\Http\Controllers\auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Session;
 use Auth;
 
 class loginUserController extends Controller
@@ -48,6 +49,7 @@ class loginUserController extends Controller
         ]);
 
         if (Auth::guard('cekTipe')->attempt(['email' => $request->email, 'password' => $request->password])) {
+            Session::put('admin',TRUE);
             return redirect()->intended($this->redirectPath());
           }
 
@@ -64,6 +66,7 @@ class loginUserController extends Controller
         ]);
 
         if (Auth::guard('cekTipe')->attempt(['email' => $request->email, 'password' => $request->password])) {
+            Session::put('dosen',TRUE);
             return redirect()->intended($this->redirectPath());
           }
 
@@ -78,7 +81,8 @@ class loginUserController extends Controller
         ]);
 
 	    if (Auth::guard('cekTipe')->attempt(['email' => $request->email, 'password' => $request->password])) {
-	      return redirect()->intended('/mahasiswa');
+            Session::put('mahasiswa',TRUE);
+            return redirect()->intended($this->redirectPath());
 	    }
 
         return back()->withInput($request->only('email', 'remember'));
@@ -96,10 +100,10 @@ class loginUserController extends Controller
 	public function logout()
   	{
         if (Auth::guard('cekTipe')->check()) {
+            Session::flush();
             Auth::guard('cekTipe')->logout();
-    }
+        }
         return redirect('/front');
-
  	}
 
 

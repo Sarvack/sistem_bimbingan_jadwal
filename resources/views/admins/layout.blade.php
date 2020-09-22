@@ -48,6 +48,11 @@
               <a href="/logout/pengguna" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
               </a>
+              {{-- <li><a href="{{route('logout')}}"><i class="ti-power-off m-r-10 text-danger"></i> Logout</a></li> --}}
+              {{-- <a href="#" onclick="document.getElementById('logout-form').submit();"> Logout</a>
+                <form id="logout-form" action="{{ route('logoutPengguna') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form> --}}
             </div>
           </li>
         </ul>

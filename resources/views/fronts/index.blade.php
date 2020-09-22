@@ -15,7 +15,7 @@
                             <i class="flaticon-school"></i>
                         </div>
                         <div class="service_info">
-                            <h4><a href="#">Mahasiswa</a></h4>
+                            <h4><a href="{{ route('mahasiswaLogin') }}">Mahasiswa</a></h4>
                             <p>Login</p>
                         </div>
                     </div>

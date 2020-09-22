@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProdiTopik extends Model
 {
+    protected $primaryKey = 'id';
+
     protected $table = 'pps_prodi_topik';
 
     protected $fillable = ['id', 'prodi_id', 'nama'];
