@@ -14,14 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/front', 'FrontController@index');
-Route::get('/custom/login', 'FrontController@loginUser')->name('multilogin');
-Route::get('/login/admin', 'Auth\loginUserController@adminLoginForm')->name('adminLogin');
-Route::post('/login/admin', 'Auth\loginUserController@adminLogin');
-Route::get('/login/dosen', 'Auth\loginUserController@dosenLoginForm')->name('dosenLogin');
-Route::post('/login/dosen', 'Auth\loginUserController@dosenLogin');
-Route::get('/login/mahasiswa', 'Auth\loginUserController@mahasiswaLoginForm')->name('mahasiswaLogin');
-Route::post('/login/mahasiswa', 'Auth\loginUserController@mahasiswaLogin');
-Route::get('/logout/pengguna', 'Auth\loginUserController@logout')->name('logoutPengguna');
 
 Route::group(
     ['namespace' => 'Admin', 'middleware' => ['auth', 'cekTipe:Admin Prodi'], 'prefix' => 'admin'],
@@ -55,3 +47,14 @@ Route::group(
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+//not used anymore
+// Route::get('/custom/login', 'FrontController@loginUser')->name('multilogin');
+// Route::get('/login/admin', 'Auth\loginUserController@adminLoginForm')->name('adminLogin');
+// Route::post('/login/admin', 'Auth\loginUserController@adminLogin');
+// Route::get('/login/dosen', 'Auth\loginUserController@dosenLoginForm')->name('dosenLogin');
+// Route::post('/login/dosen', 'Auth\loginUserController@dosenLogin');
+// Route::get('/login/mahasiswa', 'Auth\loginUserController@mahasiswaLoginForm')->name('mahasiswaLogin');
+// Route::post('/login/mahasiswa', 'Auth\loginUserController@mahasiswaLogin');
+// Route::get('/logout/pengguna', 'Auth\loginUserController@logout')->name('logoutPengguna');

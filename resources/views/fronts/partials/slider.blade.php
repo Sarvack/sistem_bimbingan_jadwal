@@ -1,51 +1,17 @@
-<!-- slider_area_start -->
-<div class="slider_area">
-    <div class="slider_active owl-carousel">
-        <!-- single_carouse -->
-        <div class="single_slider  d-flex align-items-center slider_bg_1">
+<section class="slider-area ">
+    <div class="slider-active">
+        <!-- Single Slider -->
+        <div class="single-slider slider-height d-flex align-items-center">
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-12">
-                        <div class="slider_text ">
-                            <h3>Bimbingan Online</h3>
-                            {{-- <a href="#" class="boxed-btn3">Get Start</a>
-                            <a href="#" class="boxed-btn4">Take a tour</a> --}}
+                    <div class="col-xl-6 col-lg-7 col-md-12">
+                        <div class="hero__caption">
+                            <h1 data-animation="fadeInLeft" data-delay="0.2s">Bimbingan <br> & Jadwal Online</h1>
+                            <p data-animation="fadeInLeft" data-delay="0.4s">Sistem yang memudahkan kegiatan bimbingan skripsi dan penjadwalan tanpa harus bertatap muka.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--/ single_carouse -->
-        <!-- single_carouse -->
-        <div class="single_slider  d-flex align-items-center slider_bg_2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="slider_text ">
-                            <h3>Penjadwalan Online</h3>
-                            {{-- <a href="#" class="boxed-btn3">Get Start</a>
-                            <a href="#" class="boxed-btn4">Take a tour</a> --}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/ single_carouse -->
-        <!-- single_carouse -->
-        <div class="single_slider  d-flex align-items-center slider_bg_1">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="slider_text ">
-                            <h3>Bimo &amp; Jado</h3>
-                            <a href="#" class="boxed-btn3">Get Start</a>
-                            <a href="#" class="boxed-btn4">Take a tour</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/ single_carouse -->
     </div>
-</div>
-<!-- slider_area_end -->
+</section>

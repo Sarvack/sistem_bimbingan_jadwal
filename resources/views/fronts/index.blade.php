@@ -1,46 +1,44 @@
 @extends('fronts.layout')
 
-@section('slider')
+{{-- @section('slider')
     @include('fronts.partials.slider')
-@endsection
+@endsection --}}
 
 @section('content')
     <!-- service_area_start  -->
-    <div class="service_area gray_bg">
+    <div class="services-area">
         <div class="container">
-            <div class="row justify-content-center ">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_service d-flex align-items-center ">
-                        <div class="icon">
-                            <i class="flaticon-school"></i>
+            <div class="row justify-content-sm-center">
+                <div class="col-lg-4 col-md-6 col-sm-8">
+                    <div class="single-services mb-30">
+                        <div class="features-icon">
+                            <img src="{{ URL::asset('welcome/assets/img/icon/icon1.svg') }}" alt="">
                         </div>
-                        <div class="service_info">
-                            <h4><a href="{{ route('mahasiswaDashboard') }}">Mahasiswa</a></h4>
-                            <p>Login</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_service d-flex align-items-center ">
-                        <div class="icon">
-                            <i class="flaticon-book"></i>
-                        </div>
-                        <div class="service_info">
-                            {{-- <h4><a href="{{ route('dosenRegister') }}">Dosen</a></h4> --}}
-                            <h4><a href="{{ route('dosenDashboard') }}">Dosen</a></h4>
-                            <p>Login</p>
+                        <div class="features-caption">
+                            <a href="{{ route('adminDashboard') }}"><h3>Admin</h3></a>
+                            <p>Login to continue</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_service d-flex align-items-center ">
-                        <div class="icon">
-                            <i class="flaticon-book"></i>
+                <div class="col-lg-4 col-md-6 col-sm-8">
+                    <div class="single-services mb-30">
+                        <div class="features-icon">
+                            <img src="{{ URL::asset('welcome/assets/img/icon/icon1.svg') }}" alt="">
                         </div>
-                        <div class="service_info">
-                            {{-- <h4><a href="{{ route('adminRegister') }}">Admin Prodi</a></h4> --}}
-                            <h4><a href="{{ route('adminDashboard') }}">Admin Prodi</a></h4>
-                            <p>Login</p>
+                        <div class="features-caption">
+                            <a href="{{ route('dosenDashboard') }}"><h3>Dosen</h3></a>
+                            <p>Login to continue</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-8">
+                    <div class="single-services mb-30">
+                        <div class="features-icon">
+                            <img src="{{ URL::asset('welcome/assets/img/icon/icon1.svg') }}" alt="">
+                        </div>
+                        <div class="features-caption">
+                            <a href="{{ route('mahasiswaDashboard') }}"><h3>Mahasiswa</h3></a>
+                            <p>Login to continue</p>
                         </div>
                     </div>
                 </div>
