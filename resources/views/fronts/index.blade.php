@@ -15,7 +15,7 @@
                             <i class="flaticon-school"></i>
                         </div>
                         <div class="service_info">
-                            <h4><a href="{{ route('mahasiswaLogin') }}">Mahasiswa</a></h4>
+                            <h4><a href="{{ route('mahasiswaDashboard') }}">Mahasiswa</a></h4>
                             <p>Login</p>
                         </div>
                     </div>
@@ -27,7 +27,7 @@
                         </div>
                         <div class="service_info">
                             {{-- <h4><a href="{{ route('dosenRegister') }}">Dosen</a></h4> --}}
-                            <h4><a href="{{ route('dosenLogin') }}">Dosen</a></h4>
+                            <h4><a href="{{ route('dosenDashboard') }}">Dosen</a></h4>
                             <p>Login</p>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                         </div>
                         <div class="service_info">
                             {{-- <h4><a href="{{ route('adminRegister') }}">Admin Prodi</a></h4> --}}
-                            <h4><a href="{{ route('adminLogin') }}">Admin Prodi</a></h4>
+                            <h4><a href="{{ route('adminDashboard') }}">Admin Prodi</a></h4>
                             <p>Login</p>
                         </div>
                     </div>
