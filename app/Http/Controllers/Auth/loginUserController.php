@@ -5,8 +5,8 @@ namespace App\Http\Controllers\auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use Session;
 use Auth;
+use Session;
 
 class loginUserController extends Controller
 {
@@ -49,11 +49,11 @@ class loginUserController extends Controller
         ]);
 
         if (Auth::guard('cekTipe')->attempt(['email' => $request->email, 'password' => $request->password])) {
-            Session::put('admin',TRUE);
+            Session::put('multiuser',TRUE);
             return redirect()->intended($this->redirectPath());
-          }
+        }
 
-          return back()->withInput($request->only('email', 'remember'));
+        return back()->withInput($request->only('email', 'remember'));
     }
 
     public function dosenLogin(Request $request)
@@ -66,8 +66,8 @@ class loginUserController extends Controller
         ]);
 
         if (Auth::guard('cekTipe')->attempt(['email' => $request->email, 'password' => $request->password])) {
-            Session::put('dosen',TRUE);
-            return redirect()->intended($this->redirectPath());
+            Session::put('dosenuser',TRUE);
+            return redirect()->intended('/dosen/dashboard');
           }
 
           return back()->withInput($request->only('email', 'remember'));
@@ -81,8 +81,8 @@ class loginUserController extends Controller
         ]);
 
 	    if (Auth::guard('cekTipe')->attempt(['email' => $request->email, 'password' => $request->password])) {
-            Session::put('mahasiswa',TRUE);
-            return redirect()->intended($this->redirectPath());
+            Session::put('mahasiswauser',TRUE);
+	        return redirect()->intended('/mahasiswa/dashboard');
 	    }
 
         return back()->withInput($request->only('email', 'remember'));
@@ -103,6 +103,7 @@ class loginUserController extends Controller
             Session::flush();
             Auth::guard('cekTipe')->logout();
         }
+
         return redirect('/front');
  	}
 

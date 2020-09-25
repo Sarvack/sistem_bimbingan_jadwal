@@ -52,7 +52,20 @@ return [
             'provider' => 'roles',
         ],
 
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
 
+        'dosen' => [
+            'driver' => 'session',
+            'provider' => 'dosens',
+        ],
+
+        'mahasiswa' => [
+            'driver' => 'session',
+            'provider' => 'mahasiswas',
+        ],
     ],
 
     /*
@@ -79,6 +92,21 @@ return [
         ],
 
         'roles' => [
+            'driver' => 'eloquent',
+            'model' => App\Users::class,
+        ],
+
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Users::class,
+        ],
+
+        'dosens' => [
+            'driver' => 'eloquent',
+            'model' => App\Users::class,
+        ],
+
+        'mahasiswas' => [
             'driver' => 'eloquent',
             'model' => App\Users::class,
         ],

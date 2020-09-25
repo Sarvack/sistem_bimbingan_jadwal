@@ -13,7 +13,7 @@
         </li>
         <li class="menu-header">Menus</li>
         {{-- Admin Only --}}
-        @if (Auth::guard()->user()->tipe == 'Admin Prodi')
+        @if (Auth::guard('cekTipe')->user()->tipe == 'Admin Prodi')
         <li class="dropdown">
             <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Prodi</span></a>
             <ul class="dropdown-menu">

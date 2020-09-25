@@ -63,7 +63,10 @@
             <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
               <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <img class="img-xs rounded-circle" src="" alt="Profile image">
-                <span class="profile-text">{{ Auth::guard('cekTipe')->user()->nama }}</span>
+              @if (Auth::guard('dosen'))
+                <span class="profile-text">{{ Auth::guard('dosen')->user()->nama }}</span>
+              @endif
+
               </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                 <div class="dropdown-header text-center">

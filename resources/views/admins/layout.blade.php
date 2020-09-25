@@ -39,17 +39,17 @@
         <ul class="navbar-nav navbar-right">
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
             <img alt="image" src="{{ URL::asset('backend/assets/img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
-            <div class="d-sm-none d-lg-inline-block">Hi, {{ Auth::guard()->user()->nama }}</div></a>
+            {{-- <div class="d-sm-none d-lg-inline-block">Hi, {{ Auth::guard('admin')->user()->nama }}</div></a> --}}
             <div class="dropdown-menu dropdown-menu-right">
               <a href="features-profile.html" class="dropdown-item has-icon">
                 <i class="far fa-user"></i> Profile
               </a>
               <div class="dropdown-divider"></div>
-              <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item has-icon text-danger">
+              <a href="{{ route('logoutPengguna') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item has-icon text-danger">
                 Logout
             </a>
 
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            <form id="logout-form" action="{{ route('logoutPengguna') }}" method="POST" style="display: none;">
                 {{ csrf_field() }}
             </form>
               {{-- <a href="{{ url('/logout') }}" class="dropdown-item has-icon text-danger"> logout </a> --}}

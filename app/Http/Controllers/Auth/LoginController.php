@@ -66,22 +66,10 @@ class LoginController extends Controller
         return property_exists($this, 'redirectTo') ? $this->redirectTo : '/front';
     }
 
-    // public function logout(Request $request)
-    // {
-    //     $this->guard()->logout();
-
-    //     $request->session()->flush();
-
-    //     $request->session()->regenerate();
-
-    //     return redirect('/front')
-    //         ->withSuccess('Terimakasih, selamat datang kembali!');
-    // }
-
     public function logout () {
-        //logout user
+        
         auth()->logout();
-        // redirect to homepage
+        
         return redirect('/front');
     }
 }

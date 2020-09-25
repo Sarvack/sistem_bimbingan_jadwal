@@ -12,7 +12,7 @@ class Users extends Authenticatable
 
 	protected $table = 'z_users';
 
-    protected $guarded = 'cekTipe';
+    // protected $guarded = 'tipe';
 
     protected $primaryKey = 'id';
 
@@ -26,5 +26,41 @@ class Users extends Authenticatable
     public function dosen()
     {
     	return $this->hasOne('App\Dosen');
+    }
+
+    public function isAdmin()
+    {
+        if($this->tipe === 'Admin Prodi')
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public function isDosen()
+    {
+        if($this->tipe === 'Dosen')
+        {
+        return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public function isMahasiswa()
+    {
+        if($this->tipe === 'Mahasiswa')
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
