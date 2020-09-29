@@ -11,20 +11,20 @@ class Dosen extends Authenticatable
 {
     use Notifiable;
 
-        protected $primaryKey = 'id';
+    protected $primaryKey = 'id';
 
-        protected $table = 'z_dosen';
+    protected $table = 'z_dosen';
 
-        protected $fillable = [
-            'name', 'nip', 'nidn', 'foto', 'alamat', 'no_telp', 'tanda_jadwal'
-        ];
+    protected $fillable = [
+        'name', 'nip', 'nidn', 'foto', 'alamat', 'no_telp', 'tanda_jadwal'
+    ];
 
-        protected $hidden = [
-            'password', 'remember_token',
-        ];
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
 
-        public function dosen()
+    public function dosen()
     {
-    	return $this->belongsTo('App\Users', 'profil_id');
+    	return $this->hasOne('App\Users');
     }
 }

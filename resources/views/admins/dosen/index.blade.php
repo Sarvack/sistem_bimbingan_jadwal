@@ -42,7 +42,7 @@
 
                         <a class="btn btn-info" href="{{ route('dosencrud.show',$hasil->id) }}">Show</a>
 
-                        {{-- <a class="btn btn-primary" href="{{ route('dosencrud.edit',$hasil->id) }}">Edit</a> --}}
+                        <a class="btn btn-primary" href="{{ route('dosencrud.edit',$hasil->id) }}">Edit</a>
 
                         @csrf
                         @method('DELETE')

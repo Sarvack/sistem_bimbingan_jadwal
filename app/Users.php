@@ -12,55 +12,18 @@ class Users extends Authenticatable
 
 	protected $table = 'z_users';
 
-    // protected $guarded = 'tipe';
-
     protected $primaryKey = 'id';
 
     protected $fillable = ['id, nama, email, password, tipe, profil_id'];
 
     public function admin()
     {
-    	return $this->hasOne('App\Admin');
+        return $this->hasOne('App\Admin');
     }
 
-    public function dosen()
+    public function dosenuser()
     {
-    	return $this->hasOne('App\Dosen');
+    	return $this->belongsTo('App\Dosen', 'profil_id');
     }
 
-    public function isAdmin()
-    {
-        if($this->tipe === 'Admin Prodi')
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    public function isDosen()
-    {
-        if($this->tipe === 'Dosen')
-        {
-        return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    public function isMahasiswa()
-    {
-        if($this->tipe === 'Mahasiswa')
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
 }

@@ -49,6 +49,8 @@ class loginUserController extends Controller
         ]);
 
         if (Auth::guard('cekTipe')->attempt(['email' => $request->email, 'password' => $request->password])) {
+            Session::put('nama', $request->nama);
+            Session::put('email', $request->email);
             Session::put('multiuser',TRUE);
             return redirect()->intended($this->redirectPath());
         }

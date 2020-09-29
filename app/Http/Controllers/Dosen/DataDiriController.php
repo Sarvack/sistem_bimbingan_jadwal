@@ -1,25 +1,36 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Dosen;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Admin;
+use App\Dosen;
 use App\Users;
 use Auth;
 
-class DashboardController extends Controller
+class DataDiriController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index(Users $user)
     {
-        return view('admins.dashboard.index', compact('user'));
+        return view('dosens.dashboard', compact('user'));
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function edit($id)
     {
-        $this->data['admin'] = Admin::where('id', '=', Auth::guard('cekTipe')->user()->profil_id)->first();
+        $this->data['dosen'] = Dosen::where('id', '=', Auth::guard('cekTipe')->user()->profil_id)->first();
 
-        return view('admins.datadiri.index', $this->data);
+        return view('dosens.datadiri.index', $this->data);
     }
 
     /**
@@ -33,8 +44,12 @@ class DashboardController extends Controller
     {
         $this->validate($request, [
             'nama' => 'required|min:4',
+            'nip' => 'min:3|unique:z_dosen,nip,'.$id.',id',
+            'nidn' => 'min:3|unique:z_dosen,nidn,'.$id.',id',
             'email' => 'required|min:4|email|unique:z_users,email,'.$id.',profil_id',
             'password' => 'required',
+            'alamat' => 'required',
+            'no_telp' => 'required',
             'foto' => 'file|image|mimes:jpeg,png,jpg|max:2048'
         ]);
 
@@ -45,21 +60,25 @@ class DashboardController extends Controller
         $data->save();
 
 
-        $data1 = Admin::where('id', '=', $id)->first();
+        $data1 = Dosen::where('id', '=', $id)->first();
         $data1->nama = $request->nama;
+        $data1->nip = $request->nip;
+        $data1->nidn = $request->nidn;
+        $data1->alamat = $request->alamat;
+        $data1->no_telp = $request->no_telp;
         if (empty($request->file('foto'))){
             $data1->foto = $data1->foto;
         }
         else{
             unlink('picture/foto-register/'.$data1->foto); //menghapus file lama
             $file = $request->file('foto');
-	        $nama_file = "admin".date('Y-m-d')."_".$file->getClientOriginalName();
+	        $nama_file = "dosen".date('Y-m-d')."_".$file->getClientOriginalName();
 	        $tujuan_upload = 'picture/foto-register';
 	        $file->move($tujuan_upload,$nama_file);
 	        $data1->foto = $nama_file;
         }
         $data1->save();
-    	return redirect('/admin/profile')->with('alert','Data Admin Di perbaharui.');
+    	return redirect('/admin/dosencrud')->with('alert','Data Dosen siperbaharui.');
     }
 
 }

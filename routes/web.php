@@ -29,7 +29,7 @@ Route::group(
     ['namespace' => 'Admin', 'middleware' => ['cekTipe', 'admin'], 'prefix' => 'admin'],
     function () {
         Route::get('dashboard', 'DashboardController@index')->name('adminDashboard');
-        Route::get('profile', 'DashboardController@profileAdmin')->name('adminProfile');
+        Route::resource('profile', 'DashboardController');
         Route::resource('prodi', 'ProdiController');
         Route::resource('topik', 'ProdiTopikController');
         Route::resource('konsentrasi', 'ProdiKonsentrasiController');
@@ -48,6 +48,7 @@ Route::group(
     ['namespace' => 'Dosen', 'middleware' => ['cekTipe', 'dosen'], 'prefix' => 'dosen'],
     function () {
         Route::get('dashboard', 'DosenController@index')->name('dosenDashboard');
+        Route::resource('datadiri', 'DataDiriController');
     }
 );
 
