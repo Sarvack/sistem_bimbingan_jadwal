@@ -78,7 +78,7 @@ class DataDiriController extends Controller
 	        $data1->foto = $nama_file;
         }
         $data1->save();
-    	return redirect('/admin/dosencrud')->with('alert','Data Dosen siperbaharui.');
+    	return redirect('/dosen/dashboard')->with('alert','Data Dosen diperbaharui.');
     }
 
 }

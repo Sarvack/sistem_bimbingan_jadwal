@@ -40,7 +40,7 @@
         </div>
     @endif
     {{-- end alert fuk --}}
-    <form action="{{ route('datadiri.update',Auth::guard('cekTipe')->user()->profil_id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('datadiridosen.update',Auth::guard('cekTipe')->user()->profil_id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="card-header">

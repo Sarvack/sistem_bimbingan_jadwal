@@ -48,7 +48,7 @@ Route::group(
     ['namespace' => 'Dosen', 'middleware' => ['cekTipe', 'dosen'], 'prefix' => 'dosen'],
     function () {
         Route::get('dashboard', 'DosenController@index')->name('dosenDashboard');
-        Route::resource('datadiri', 'DataDiriController');
+        Route::resource('datadiridosen', 'DataDiriController');
     }
 );
 
@@ -56,13 +56,10 @@ Route::group(
     ['namespace' => 'Mahasiswa', 'middleware' => ['cekTipe', 'mahasiswa'], 'prefix' => 'mahasiswa'],
     function () {
         Route::get('dashboard', 'MahasiswaController@index')->name('mahasiswaDashboard');
+        Route::resource('datadiri', 'DataDiriController');
     }
 );
 
-
-
 Route::get('/home', 'HomeController@index')->name('home');
 
-
-//not used anymore
 
