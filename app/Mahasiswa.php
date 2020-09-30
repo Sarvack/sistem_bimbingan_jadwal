@@ -24,14 +24,14 @@ class Mahasiswa extends Authenticatable
 
     public function prodimaha()
     {
-    	return $this->belongsTo('App\Prodi', 'profil_id');
+    	return $this->belongsTo('App\Models\Prodi', 'prodi_id');
     }
     public function konsentrasimaha()
     {
-    	return $this->belongsTo('App\Models\ProdiKonsentrasi', 'profil_id');
+    	return $this->belongsTo('App\Models\ProdiKonsentrasi', 'konsentrasi_id');
     }
     public function angkatanmaha()
     {
-    	return $this->belongsTo('App\Models\Angkatan', 'profil_id');
+    	return $this->belongsTo('App\Models\Angkatan', 'angkatan_id');
     }
 }

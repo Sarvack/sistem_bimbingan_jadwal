@@ -26,4 +26,8 @@ class Users extends Authenticatable
     	return $this->belongsTo('App\Dosen', 'profil_id');
     }
 
+    public function mahasiswauser()
+    {
+    	return $this->belongsTo('App\Mahasiswa', 'profil_id');
+    }
 }
