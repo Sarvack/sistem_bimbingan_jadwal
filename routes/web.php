@@ -41,6 +41,7 @@ Route::group(
         Route::post('daftaradmin', 'RegisterController@registrasiAdmin');
         Route::get('register', 'RegisterController@register')->name('dosenRegister');
         Route::post('daftardosen', 'RegisterController@registrasiDosen');
+        Route::resource('tahapan', 'TahapanController');
     }
 );
 
@@ -57,6 +58,7 @@ Route::group(
     function () {
         Route::get('dashboard', 'MahasiswaController@index')->name('mahasiswaDashboard');
         Route::resource('datadiri', 'DataDiriController');
+        Route::resource('penelitian', 'PenelitianController');
     }
 );
 

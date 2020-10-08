@@ -17,6 +17,7 @@
 <script src="{{ URL::asset('backend/assets/modules/nicescroll/jquery.nicescroll.min.js') }}"></script>
 <script src="{{ URL::asset('backend/assets/modules/moment.min.js') }}"></script>
 <script src="{{ URL::asset('backend/assets/js/stisla.js') }}"></script>
+<script src="{{ URL::asset('backend/assets/modules/select2/dist/js/select2.full.min.js') }}"></script>
 
 <!-- JS Libraies -->
 
